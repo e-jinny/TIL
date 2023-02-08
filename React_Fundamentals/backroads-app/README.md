@@ -338,3 +338,5 @@
   - push up to github repo
   - netlify - import an existing project
 - However I pushed this project up to my TIL repo..so I’ll deploy this manually on Netlify
+  - npm run build
+  - https://til-1-backroads-app.netlify.app/
