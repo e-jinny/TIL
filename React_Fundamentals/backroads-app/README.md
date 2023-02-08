@@ -28,6 +28,7 @@
   - remove logo.svg
   - remove App.css
 - index.js
+
   ```jsx
   import React from 'react';
   import ReactDOM from 'react-dom/client';
@@ -44,6 +45,7 @@
 
   //Simply remove reportWebBitals() and the import
   ```
+
 - index.css - This is where I set up my global styles or maybe all the styles
   - When I first create react app, I see two CSS fies. - App.css and index.css
   - **I can nicely split up the CSS code but I need to be careful because all of the CSS code ends up in one place.**
@@ -99,7 +101,9 @@
 ### Logo
 
 - in Navbar.js
+
   - setup import from images and update source
+
     ```jsx
     // import
     import logo from '../images/logo.svg'
@@ -132,6 +136,7 @@
 ### Page Links
 
 - refactor repeating code
+
   - figure out which data is repeating - href, text
     ```jsx
     <li>
@@ -142,6 +147,7 @@
     ```
   - in src create data.js and set up a structure - [{property:value},{property:value}]
   - iterate over data
+
     ```jsx
     export const pageLinks = [
       { id: 1, href: '#home', text: 'home' },
@@ -150,6 +156,7 @@
       { id: 4, href: '#tours', text: 'tours' },
     ];
     ```
+
     ```jsx
     import { pageLinks } from '../data';
 
@@ -165,6 +172,7 @@
       });
     }
     ```
+
 - **Now I can control the links in one place and the browser is just responsible for rendering them. I don’t have to hard code anything.**
 
 ### **Nav Icons (social-links)**
@@ -233,6 +241,7 @@
 - get the structure from one of the sections
 - setup two props
 - replace in About, Services, Tours
+
   ```jsx
   // import
   import Title from './Title';
@@ -258,6 +267,7 @@
   ];
   ```
 - Services.js
+
   ```jsx
   import Title from './Title';
   import { services } from '../data';
@@ -324,5 +334,7 @@
 ### Deployment
 
 - make sure to fix warnings and errors
-- push up to github repo
-- netlify - import an existing project
+- with github repo
+  - push up to github repo
+  - netlify - import an existing project
+- However I pushed this project up to my TIL repo..so I’ll deploy this manually on Netlify
