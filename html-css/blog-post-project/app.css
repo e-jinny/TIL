@@ -47,6 +47,11 @@ h6 {
   letter-spacing: 0.25px;
 }
 
+code {
+  color: #e95400;
+  font-weight: 700;
+}
+
 .content {
   max-width: 900px;
   margin: 0 auto;
