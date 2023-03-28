@@ -1,6 +1,7 @@
 body {
   padding: 0;
   margin: 0;
+  font-family: 'Forum', serif;
 }
 
 .hero {
@@ -14,6 +15,7 @@ body {
   align-items: center;
   color: white;
   padding: 24px 32px;
+  box-sizing: border-box;
 }
 
 .navbar .links a {
@@ -26,4 +28,16 @@ body {
 .navbar p {
   font-size: 2rem;
   font-weight: bold;
+  margin: 0;
+}
+
+.navbar .contact {
+  background-color: white;
+  color: #f08e80;
+  padding: 16px 24px;
+  text-decoration: none;
+}
+
+.navbar .contact:hover {
+  opacity: 0.8;
 }
