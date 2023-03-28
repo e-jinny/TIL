@@ -2,11 +2,13 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Forum', serif;
+  display: inline-block;
 }
 
 .hero {
-  height: 90vh;
+  min-height: 90vh;
   background-color: #f08e80;
+  color: white;
 }
 
 .navbar {
@@ -51,4 +53,29 @@ body {
   color: white;
   letter-spacing: 2px;
   padding: 32px 0;
+}
+
+.two-column-section {
+  font-size: 2rem;
+}
+
+.two-column-section p {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+}
+
+.two-column-section .skills {
+  width: 50%;
+  box-sizing: border-box;
+  float: left;
+  padding: 0;
+  list-style: none;
+}
+
+.two-column-section .skills li {
+  width: 50%;
+  float: left;
+  font-size: 1.25rem;
+  margin: 8px 0;
 }
