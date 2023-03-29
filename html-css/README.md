@@ -17,4 +17,7 @@ By building these propjects, I've learned how to use HTML and CSS to create a vi
 
 ## 🎯 I learned through the following projects...
 
-1.
+1. [Artist-Portfolio-Project](https://github.com/e-jinny/TIL/tree/main/html-css/artist-portfolio-project)
+2. [Blog-Post-Project](https://github.com/e-jinny/TIL/tree/main/html-css/blog-post-project)
+3. [Hazel-CV-Project](https://github.com/e-jinny/TIL/tree/main/html-css/hazel-cv-project)
+4. [Cost-Estimator-Project](https://github.com/e-jinny/TIL/tree/main/html-css/cost-estimator-project)
