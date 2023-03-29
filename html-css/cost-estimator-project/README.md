@@ -1,8 +1,10 @@
 ## Source
 
+[The HTML & CSS Bootcamp Course](https://www.udemy.com/share/1085lQ3@_8AUEjhUY4KLN_wkAur49R-qj_wD-ULv51rA9D1lVQ-fvHKs09YmYJVTGXBBzyJ3DA==/)
+
 ## Step By Step Learning
 
-### Building Our Container
+### 1. Building Our Container
 
 ```html
 <body>
@@ -36,7 +38,7 @@ h1 {
 
 - Make a container and use `flexbox` to center everything in the middle of the body.
 
-### Creating The Top Tabs
+### 2. Creating The Top Tabs
 
 ```html
 <body>
@@ -90,7 +92,7 @@ h1 {
 - Use `flexbox` to lay out the entire container in a `column` direction and center everything in the middle of the container.
 - Getting the text (the tabs) spread out across the top of the container, is a perfect use case for `flexbox`.
 
-### Positioning The Tabs Underline
+### 3. Positioning The Tabs Underline
 
 ```html
 <div class="container">
@@ -154,7 +156,7 @@ h1 {
 - So instead of actually using the border bottom, we can make a div as a line that’s three pixels tall and position it in the right spot.
 - Make the container `relative`, so the line is positioned based on the container’s top, not the html root element.
 
-### Creating The Active Tab Styles
+### 5. Creating The Active Tab Styles
 
 ```html
 <div class="tabs">
@@ -187,7 +189,7 @@ h1 {
 - When creating active tab, instead of using border bottom or creating a separate box, use `::before` pseudo element (`::before`: whatever has the active class, put something right before it) ⇒ I’m going to cover `::before` , `::after` pseudo elements later.
 - When making the line centered, instead of having to calculate the exact right or left, do `left: -50%;`.
 
-### Adding The Toggle Section
+### 6. Adding The Toggle Section
 
 ```html
 <div class="toggle-wrapper">
@@ -240,7 +242,7 @@ h1 {
 - This is basically a fake toggle slider. It’s just to practice and figure out how to do some styling like border-radius, etc. I’m going to cover the real one that moves left and right later.
 - This slider is basically a checkbox, so behind the scenes we could attach a hidden checkbox and make it function as a checkbox.
 
-### Building The Sessions Card
+### 7. Building The Sessions Card
 
 ```html
 <div class="sessions-card">
@@ -279,7 +281,7 @@ h1 {
 
 - `<p>` has bottom and top margin by default. If we only want margin on top, we could do `margin-bottom: 0;` or explicitly set `margin: 16px 0 0 0;`. The second one is a little longer but it’s clear about exactly what has and does not have margin. So I prefer the second one.
 
-### Creating The Slider
+### 8. Creating The Slider
 
 ```html
 <div class="slider">
@@ -368,7 +370,7 @@ h1 {
 - To make the left side of the progress bar round shape, use `border-top-left-radius` and `border-bottom-left-radius`. There’s NO `border-left-radius`.
 - To align the bar to the slider perfectly, make it `absolute` based on the slider.
 
-### Creating The Two Price Cards
+### 9. Creating The Two Price Cards
 
 ```html
 <div class="card-wrapper">
@@ -436,7 +438,7 @@ h1 {
 
 - Use a horizontal rule to make a line. (or a border bottom.)
 
-### Finishing Up The Price Cards
+### 10. Finishing Up The Price Cards
 
 ```css
 .container {
@@ -486,3 +488,37 @@ h1 {
 ```
 
 - Set the same gradient as the slider
+
+### 11. Make The Project Responsive
+
+```css
+@media only screen and (max-width: 750px) {
+  .card {
+    width: 100%;
+  }
+  .card-wrapper {
+    flex-wrap: wrap-reverse;
+  }
+  .sessions-card {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+    padding: 16px;
+  }
+  h1 {
+    margin: 0 0 16px 0;
+  }
+  .container {
+    padding: 0 16px;
+  }
+  .sessions-card {
+    width: 100%;
+  }
+  .toggle-wrapper img {
+    margin: 0 24px;
+  }
+}
+```
