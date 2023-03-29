@@ -1,10 +1,10 @@
 ## Source
 
-[React Course](<[https://www.udemy.com/course/html-and-css-bootcamp/](https://www.udemy.com/course/html-and-css-bootcamp/)>)
+[The HTML & CSS Bootcamp Course](https://www.udemy.com/share/1085lQ3@_8AUEjhUY4KLN_wkAur49R-qj_wD-ULv51rA9D1lVQ-fvHKs09YmYJVTGXBBzyJ3DA==/)
 
 ## Step By Step Learning
 
-### Basic Project Setup
+### 1. Basic Project Setup
 
 ```html
 <head>
@@ -21,7 +21,7 @@
 - Link a CSS file to HTML file
 - Embed Google Font “Cormorant”
 
-### Writing The Navbar Markup
+### 2. Writing The Navbar Markup
 
 Using semantic elements like `<header>` and `<nav>` improve accessibility of our web pages, both to users who are using screen readers. but also to code, crawlers and scrapers.
 
@@ -46,7 +46,7 @@ Using semantic elements like `<header>` and `<nav>` improve accessibility of our
 - So `<nav>` could be in the header, footer or in the side nav bar,
 - Instead of having three disparate `<a>` elements, have one unordered list where each `<li>` is an `<a>` element.
 
-### Styling The Navbar
+### 3. Styling The Navbar
 
 ```html
 <nav class="links">
@@ -112,7 +112,7 @@ h1 {
 - Remove the defaults for links.
 - Give space between links. `margin` in better than `padding` when pushing things away. (We could use `padding` only when there’s no background color or border)
 
-### Finishing Up The Navbar
+### 4. Finishing Up The Navbar
 
 ```css
 h1 {
@@ -137,7 +137,7 @@ a.active {
 - It’s a common way to use a border to create an underline or over line that we can control the thickness of, but also the spacing. By using padding, we can push the line further away.
   With `text-decoration: underline;`, we can’t do that.
 
-### Creating The Photo Grid
+### 5. Creating The Photo Grid
 
 ```html
 <img
@@ -176,7 +176,7 @@ img {
 - Style all images with `img` selector, for now.
 - But I will find a better way to target them because it’s too broad. There might be other images like a logo, icons, etc.
 
-### Working On The Photo Grid
+### 6. Working On The Photo Grid
 
 ```html
 <div class="card">
@@ -246,7 +246,7 @@ img {
 - Space between each image vertically and horizontally.
 - To avoid pushing over the cards when we give them space between each other, set `box-sizing: borderbox`, and `paddding` .
 
-### Finishing The Photo Grid
+### 7. Finishing The Photo Grid
 
 ```html
 <section class="gallery">
@@ -283,7 +283,7 @@ img {
      ⇒ 2 would be better. Use `<section>`element for the container.
 - To avoid the images being squashed, set `object-fit: cover;`.
 
-### Adding The Footer Content
+### 8. Adding The Footer Content
 
 ```html
 <section class="about">
