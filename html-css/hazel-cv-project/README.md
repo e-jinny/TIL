@@ -1,8 +1,10 @@
 ## Source
 
+[The HTML & CSS Bootcamp Course](https://www.udemy.com/share/1085lQ3@_8AUEjhUY4KLN_wkAur49R-qj_wD-ULv51rA9D1lVQ-fvHKs09YmYJVTGXBBzyJ3DA==/)
+
 ## Step By Step Learning
 
-### Setting Up The Navbar
+### 1. Setting Up The Navbar
 
 ```css
 body {
@@ -13,7 +15,7 @@ body {
 
 - Reset `padding` and `margin` to `0` to make the coral box go all the way to the edges. (→remove the default value)
 
-### Finishing The Navbar
+### 2. Finishing The Navbar
 
 ```html
 <a class="contact" href="#contact">Contact Me</a>
@@ -34,7 +36,7 @@ body {
 
 - The contact button is styled like a button, but it’s really more of a link. So use `<a>` instead of a `<button>`.
 
-### Starting The Hero Content
+### 3. Starting The Hero Content
 
 ```html
 <div class="hero-content">
@@ -48,7 +50,7 @@ body {
 - To make texts italicized, use an `<em>` element. We also have an `<i>` element, but the `<em>` element would make more sense because we’re trying to make the texts stand out.
 - The headline tag is as important as the name(Hazel), so use `<h1>` tag.
 
-### Making The Skills Section
+### 4. Making The Skills Section
 
 ```html
 <div class="two-column-section">
@@ -83,7 +85,7 @@ body {
 
 - If my window is smaller, shorter or less tall, then our content gets cut off.(It actually starts overflowing onto the white area. So instead of setting `height: 90vh;`, set `min-height: 90vh;` and git it a `display: inline-block;`
 
-### Creating The Blog Section
+### 5. Creating The Blog Section
 
 ```html
 <section class="blog-section">
@@ -144,6 +146,7 @@ body {
 ```
 
 - Make `.blog-date` more specific because if we do like the code below the margin-bottom will not work:
+
   ```css
   .blog-date {
     font-size: 0.9rem;
@@ -170,10 +173,48 @@ body {
   `.blog-title`(32px) = `.blog-posts`(x px) + `.blog-post .p` (8px)
   (⇒ the x is `24`)
 
-### Adding The Events Section
+### 6. Adding The Events Section
 
 - The process is similar to the previous one
 
-### Making A Simple Footer
+### 7. Making A Simple Footer
 
 - Add space by adding the padding the footer element with the black background.
+
+### 8. Make The Project Responsive
+
+```css
+@media only screen and (max-width: 1000px) {
+  .hero-content,
+  .blog-content,
+  .events-content {
+    padding: 0 5%;
+  }
+}
+
+@media only screen and (max-width: 750px) {
+  .tagline {
+    font-size: 3.5rem;
+  }
+  .two-column-section > p,
+  .two-column-section .skills,
+  .two-column-section .blog-posts {
+    width: 100%;
+  }
+  .section-heading {
+    font-weight: 700;
+    font-size: 2.4rem;
+    margin-bottom: 0;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .tagline {
+    font-size: 3rem;
+    margin: 0;
+  }
+  .links {
+    display: none;
+  }
+}
+```
