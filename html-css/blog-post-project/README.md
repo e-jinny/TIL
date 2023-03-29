@@ -1,8 +1,10 @@
 ## Source
 
+[The HTML & CSS Bootcamp Course](https://www.udemy.com/share/1085lQ3@_8AUEjhUY4KLN_wkAur49R-qj_wD-ULv51rA9D1lVQ-fvHKs09YmYJVTGXBBzyJ3DA==/)
+
 ## Step By Step Learning
 
-### Centering The Main Content
+### 1. Centering The Main Content
 
 ```html
 <body>
@@ -26,7 +28,7 @@ content {
 - It’s to set a `max-width` on this container to keep those things from going all the way across the page.
 - Set `margin: 0 auto;` to make it centered.
 
-### Working on Typography
+### 2. Working on Typography
 
 ```css
 body {
@@ -67,7 +69,7 @@ h6 {
 - Use `<blockquote>` element, and `<cite>` element instead of `<p>`. `<cite>` element is used to cite the source of a quote or a piece of information.
 - We could make the divider, which is the horizontal line, by using border-bottom. But there is an element made for it, the horizontal rule. The `<hr>` element. it’s a self-closing element.
 
-### Creating the Headline Section
+### 3. Creating the Headline Section
 
 ```css
 h1,
@@ -89,7 +91,7 @@ h1 {
 
 - When `h1` has a font weight of 500 and then 400. The second one wins out → The Cascade
 
-### Adding in Code Styles
+### 4. Adding in Code Styles
 
 ```html
 <p class="headline">
@@ -102,7 +104,7 @@ h1 {
 
 - Instead `<span>`, use `<code>` element to make the pieces of code orange. It is more semantic.
 
-### Creating the Footer
+### 5. Creating the Footer
 
 ```css
 footer ul {
@@ -117,7 +119,7 @@ footer ul {
 - The `ul` element itself takes up the full width, so the margin auto doesn’t work. Instead, set some width on it first and then set text-align to make lists centered.
 - Instead of setting a hard height on the footer, add padding to `ul` so I can make the lists in the middle
 
-### Writing The Full Size Hero
+### 6. Writing The Full Size Hero
 
 ```css
 hero {
