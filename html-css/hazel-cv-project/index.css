@@ -9,6 +9,7 @@ body {
   min-height: 90vh;
   background-color: #f08e80;
   color: white;
+  display: inline-block;
 }
 
 .navbar {
