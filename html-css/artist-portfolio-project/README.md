@@ -337,3 +337,30 @@ img {
 - To make the paragraphs stop shrinking, use `min-width`.
 - To avoid making the underline of `.cta` take up all the way across, set `display: inline-block;`.
 - Each chunk of the page gets its own chunk of styles.- This is a common approach to organize the styles.
+
+### 9. Make The Project Responsive
+
+```css
+@media only screen and (max-width: 1000px) {
+  .card {
+    width: 100%;
+  }
+
+  .about {
+    margin: 100px 0 100px 100px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  .card {
+    padding: 0;
+  }
+  .gallery {
+    padding: 8px;
+  }
+  .about {
+    margin: 100px auto;
+    min-width: 450px;
+  }
+}
+```
