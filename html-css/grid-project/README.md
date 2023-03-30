@@ -500,3 +500,196 @@ body {
 - For the hamburger button, instead of using an image, use divs to animate it later.
 - Once I start animating section I’m going to give each div a different class name(or use pseudo class) so that I can treat them differently (so that I can make one of them swivels to the right and the other swivels to the left…)
 - Fix the Navbar to the top using `position: fixed;`
+
+### 9. Writing The Individual Bar Animation
+
+```css
+.hamburger .bar:nth-child(1) {
+  animation: flipBar1 1s infinite;
+}
+
+.hamburger .bar:nth-child(2) {
+  animation: fadeBar2 1s infinite;
+}
+
+.hamburger .bar:nth-child(3) {
+  animation: flipBar3 1s infinite;
+}
+
+@keyframes flipBar1 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(45deg) translate(4px, 10px);
+  }
+}
+
+@keyframes fadeBar2 {
+  from {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+  to {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+}
+
+@keyframes flipBar3 {
+  from {
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-45deg) translate(4px, -10px);
+  }
+}
+.footer {
+  font-size: 14px;
+  padding: 32px;
+}
+```
+
+- Write three separate animation, one for each bar.
+
+### 10. Make The Hamburger Button Work
+
+```jsx
+const hamburger = document.querySelector('.hamburger');
+const bar1 = document.querySelector('.bar1');
+const bar2 = document.querySelector('.bar2');
+const bar3 = document.querySelector('.bar3');
+
+hamburger.addEventListener('click', () => {
+  bar1.classList.toggle('animateBar1');
+  bar2.classList.toggle('animateBar2');
+  bar3.classList.toggle('animateBar3');
+});
+```
+
+```css
+.animateBar1 {
+  animation: flipBar1 1s;
+  animation-fill-mode: forwards;
+}
+
+.animateBar2 {
+  animation: fadeBar2 1s;
+  animation-fill-mode: forwards;
+}
+
+.animateBar3 {
+  animation: flipBar3 1s;
+  animation-fill-mode: forwards;
+}
+```
+
+- Make a separate class for each one of the bars that will contain the animation so when I click on that hamburger, a class will be added to each corresponding bar.
+- Add `animation-fill-mode: forwards;` so that whatever happens at the end of the animation can persist.
+
+### 11. Creating The Mobile Drawer Menu
+
+```html
+<nav class="mobileNav">
+  <a href="#work">Work</a>
+  <a href="#contact">Contact</a>
+  <a href="#dribble">
+    <img src="images/dribble_icon.png" alt="" />
+  </a>
+  <a href="#insta">
+    <img src="images/insta_icon.png" alt="" />
+  </a>
+  <a href="#v">
+    <img src="images/v_icon.png" alt="" />
+  </a>
+</nav>
+```
+
+```css
+.mobileNav {
+  width: 80px;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 2;
+}
+
+.mobileNav a {
+  text-decoration: none;
+  color: black;
+  margin: 16px 0;
+}
+
+.mobileNav a:hover {
+  text-decoration: underline;
+}
+
+.mobileNav img {
+  width: 24px;
+  height: 24px;
+}
+```
+
+- The process is similar to the navbar.
+
+### 12. Animating The Drawer Slide-Out
+
+```jsx
+const hamburger = document.querySelector('.hamburger');
+const bar1 = document.querySelector('.bar1');
+const bar2 = document.querySelector('.bar2');
+const bar3 = document.querySelector('.bar3');
+const mobileNav = document.querySelector('.mobileNav');
+
+hamburger.addEventListener('click', () => {
+  bar1.classList.toggle('animateBar1');
+  bar2.classList.toggle('animateBar2');
+  bar3.classList.toggle('animateBar3');
+  mobileNav.classList.toggle('openDrawer');
+});
+```
+
+```css
+.mobileNav {
+  width: 80px;
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  right: -160px;
+  z-index: 2;
+  transition: transform 0.3s;
+}
+
+.mobileNav a {
+  text-decoration: none;
+  color: black;
+  margin: 16px 0;
+}
+
+.mobileNav a:hover {
+  text-decoration: underline;
+}
+
+.mobileNav img {
+  width: 24px;
+  height: 24px;
+}
+
+.openDrawer {
+  transform: translateX(-160px);
+}
+```
+
+- One easy way to push it over to the right is using the `top` or using the `right` property.
+  (like setting `right: -88px;` so we won’t wee it anymore) And then I could use a `transform` to bring it back.
