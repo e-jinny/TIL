@@ -71,8 +71,9 @@ body {
   align-items: center;
   position: fixed;
   top: 0;
-  right: 0;
+  right: -160px;
   z-index: 2;
+  transition: transform 0.3s;
 }
 
 .mobileNav a {
@@ -88,6 +89,10 @@ body {
 .mobileNav img {
   width: 24px;
   height: 24px;
+}
+
+.openDrawer {
+  transform: translateX(-160px);
 }
 
 .project-grid {
@@ -238,17 +243,17 @@ body {
   }
 
   .animateBar1 {
-    animation: flipBar1 1s;
+    animation: flipBar1 0.5s;
     animation-fill-mode: forwards;
   }
 
   .animateBar2 {
-    animation: fadeBar2 1s;
+    animation: fadeBar2 0.5s;
     animation-fill-mode: forwards;
   }
 
   .animateBar3 {
-    animation: flipBar3 1s;
+    animation: flipBar3 0.5s;
     animation-fill-mode: forwards;
   }
 
