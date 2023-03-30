@@ -1,5 +1,12 @@
 body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+}
+
+.container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 0 16px;
 }
 
 .navbar {
@@ -46,8 +53,6 @@ body {
     'foam foam dimensional';
   gap: 16px;
   width: 100%;
-  max-width: 90%;
-  margin: 0 auto;
 }
 
 #eth {
@@ -124,7 +129,15 @@ body {
   color: white;
 }
 
+.footer {
+  text-align: center;
+  padding: 64px;
+}
+
 @media only screen and (max-width: 1100px) {
+  .container {
+    max-width: 100%;
+  }
   .project-grid {
     max-width: 100%;
     grid-template-areas:
@@ -152,5 +165,9 @@ body {
   }
   .project .overlay {
     font-size: 24px;
+  }
+  .footer {
+    font-size: 14px;
+    padding: 32px;
   }
 }
