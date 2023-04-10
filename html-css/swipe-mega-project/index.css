@@ -86,6 +86,7 @@ h4 {
   width: 100%;
   letter-spacing: 0.25px;
 }
+
 h5 {
   font-family: var(--heading-font);
   font-weight: 500;
@@ -375,4 +376,44 @@ main {
   grid-area: dash;
   width: 100%;
   box-shadow: var(--standard-box-shadow);
+}
+
+/* INTEGRATIONS SECTION STYLES */
+.integrations-section {
+  color: var(--text-light);
+  background-color: var(--primary-accent);
+}
+
+.integrations-section .primary-button {
+  background-color: var(--blue-1);
+  color: var(--primary-accent);
+  margin: var(--spacing-md) 0 0 0;
+}
+
+.integrations-section .primary-button:hover {
+  background-color: var(--bg-white);
+}
+
+.integrations-section .card-container {
+  display: flex;
+  margin: var(--spacing-lg) 0;
+}
+
+.integrations-section .card-container .card {
+  width: 50%;
+}
+
+.integrations-section .secondary-button {
+  color: var(--blue-1);
+}
+
+#api-code {
+  max-width: 470px;
+  margin: 0 0 var(--spacing-md) 0;
+  border-radius: 20px;
+}
+
+#terminal-code {
+  max-width: 470px;
+  border-radius: 20px;
 }
