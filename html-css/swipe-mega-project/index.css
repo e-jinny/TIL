@@ -847,6 +847,20 @@ p {
   #sessions-logo {
     width: 300px;
   }
+
+  /* GETTING STARTED SECTION */
+  .getting-started-section .two-column {
+    align-items: center;
+  }
+
+  .getting-started-section .col-right {
+    flex-wrap: wrap;
+  }
+
+  .getting-started-section .col-right .card {
+    width: 100%;
+    margin: var(--spacing-md) 0;
+  }
 }
 
 /* MOBILE SIZE */
@@ -891,6 +905,28 @@ p {
 
   #globe {
     opacity: 10%;
+  }
+
+  /* FOOTER */
+  .footer .section-container {
+    flex-wrap: wrap;
+  }
+
+  .footer .col {
+    width: 50%;
+    margin: var(--spacing-md) 0;
+  }
+
+  .footer .col a {
+    font-size: 12px;
+  }
+
+  #footer-logo {
+    width: 70px;
+  }
+
+  .footer .icon-link img {
+    width: 18px;
   }
 }
 
