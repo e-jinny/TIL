@@ -1,70 +1,420 @@
-# Getting Started with Create React App
+# Backroads App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Source
 
-## Available Scripts
+[React Course](https://www.udemy.com/course/react-tutorial-and-projects-course/?referralCode=FEE6A921AF07E2563CEF)
 
-In the project directory, you can run:
+[https://github.com/john-smilga/react-course-v3](https://github.com/john-smilga/react-course-v3)
 
-### `npm start`
+## Step By Step Learning
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Create React App
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- install
+  `npx create-react-app@latest backroads-app`
+    <aside>
+    📖 The `@latest`tag specifies that you want to use the latest version of Create React App.
+    
+    </aside>
 
-### `npm test`
+- run dev server
+  `npm start`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Set up the boilerplate
 
-### `npm run build`
+- REMOVE in src
+  - App.css
+  - App.test.js
+  - logo.svg
+  - reportWebVitals.js
+  - setupTest.js
+- App.js - The root component
+  - remove logo.svg
+  - remove App.css
+- index.js
+  ```jsx
+  import React from 'react';
+  import ReactDOM from 'react-dom/client';
+  import './index.css';
+  import App from './App';
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+  const root = ReactDOM.createRoot(document.getElementById('root'));
+  root.render(
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  );
+  ```
+- index.css - This is where I set up my global styles or maybe all the styles (it’s a common approach)
+  - When I first create react app, I see two CSS fies. - App.css and index.css
+  - I can nicely split up the CSS code but I need to be careful because all of the CSS code ends up in one place.
+  - Keep in mind that it’s not scoped by default to a certain component
+- It is a common convention in React development to set up a separate root component, often referred to as the "App" component.
+- Simply remove reportWebBitals() and the import
+- `<React.strickMode>` - React.strickMode is a tool for highlighting potential problems in application.
+  It activates additional checks and warnings for its descendants. - If I go with `console.log("hello")` in App component, I see two “hello” in the console.
+  It basically runs twice because I have `<React.StricMode>` wrapping my `<App/>` component. - however, it’s not going to affect the production. - I can remove it if I want.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Set up The Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- html project → [https://github.com/john-smilga/react-course-v3/tree/main/02-backroads-project/backroads-html](https://github.com/john-smilga/react-course-v3/tree/main/02-backroads-project/backroads-html)
+- public/index.html
+  - change title
+  - copy/paste font-awesome link (from html project)
+- index.css
+  - copy/paste css (from html project - css/style.css)
+  - coment out this
+    ```jsx
+    @media screen and (min-width: 768px) {
+      /* .hero {
+        background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
+          url('../images/main.jpeg') center/cover no-repeat;
+      } */
+    }
+    ```
+- src folder
+  - copy/paste images folder (from html project)
+  - move favicon.ico to public
+- App.js
+  - refactor to <React.Fragment>
+    Fragment → let's us group elements without adding extra nodes
+  - copy/paste all the content within body tags, up to <script> (index.html)
+  - select all "class" instances and refactor to "className" (CMD + D or SHIFT + CMD + L)
+  - fix the comment bug (remove or comment out) - if I have some commetns coming from HTML, JSX will complain
+  - don't worry about - Using target="\_blank" without rel="noreferrer" warning, will fix it later
+  - move README.md from final to current project
+  - I have all the code in App.js (and it’s possible) BUT one of the benefits of React is the fact that I can split up our code effectively.
+- html/css feature - **Smooth Scroll**
+  ```html
+  <!-- link -->
+  <a href="#services"> services </a>
+  <!-- element -->
+  <section id="services"></section>
+  ```
+  ```css
+  html {
+    scroll-behavior: smooth;
+  }
+  .section {
+    /* navbar height */
+    scroll-margin-top: 4rem;
+  }
+  ```
+  - Just because I work with React does not mean I have to use JavaScript for everything.
+    There are features which I can nicely set up with just HTML, CSS or Vanilla JS.
 
-### `npm run eject`
+### Set up The Components
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- in src create components folder
+- in the components create following files
+  - Navbar.js
+  - Hero.js
+  - About.js
+  - Services.js
+  - Tours.js
+  - Footer.js
+- setup components with default export (snippet - rafce)
+- carefully split up the code from App.js into each component (files)
+- import and render all components in App.js (try auto imports)
+- result is going to be the same, it's just easier to manage the code
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Fix The Logo Image
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- in Navbar.js
+  ```
+  <img src='./images/logo.svg' className='nav-logo' alt='backroads' />
+  ```
+  event though the images folder is in the src, this is not how it works
+- setup import from images and update source
+  ```jsx
+  // import
+  import logo from '../images/logo.svg';
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+  // JSX
+  <img src={logo} className='nav-logo' alt='backroads' />;
+  ```
 
-## Learn More
+### Create Page Links Data
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- figure out which data is repeating - href, text
+  ```jsx
+  <li>
+    <a href='#home' className='nav-link'>
+      home
+    </a>
+  </li>
+  ```
+- in src create data.js and set up a structure - `[{property:value},{property:value}]`
+  ```jsx
+  export const pageLinks = [
+    { id: 1, href: '#home', text: 'home' },
+    { id: 2, href: '#about', text: 'about' },
+    { id: 3, href: '#services', text: 'services' },
+    { id: 4, href: '#tours', text: 'tours' },
+  ];
+  ```
+- export/import `pageLinks` data
+- the data is located in one place - it’s easy to remove and add data
+  HTML does not have the templating option, so I just had to hard code everything
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Refactor Repeating Code - Page Links
 
-### Code Splitting
+- iterate over data
+  ```jsx
+  import { pageLinks } from '../data';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+  {
+    pageLinks.map((link) => {
+      return (
+        <li key={link.id}>
+          <a href={link.href} className='nav-link'>
+            {link.text}
+          </a>
+        </li>
+      );
+    });
+  }
+  ```
+- Now I can control the links in one place and the browser is just responsible for rendering them.
 
-### Analyzing the Bundle Size
+### Create Social Links Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- figure out which data is repeating - href, text
+  ```jsx
+  <li>
+    <a href='https://www.twitter.com' target='_blank' className='nav-icon'>
+      <i className='fab fa-facebook'></i>
+    </a>
+  </li>
+  ```
+- in src create data.js and set up a structure - `[{property:value},{property:value}]`
+  ```jsx
+  export const socialLinks = [
+    { id: 1, href: 'https://www.facebook.com', icon: 'fab fa-facebook' },
+    { id: 2, href: 'https://www.twitter.com', icon: 'fab fa-twitter' },
+    { id: 3, href: 'https://www.squarespace.com', icon: 'fab fa-squarespace' },
+  ];
+  ```
+- export/import `socialLinks` data
 
-### Making a Progressive Web App
+### Refactor Repeating Code - Social Links
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- use JavaScirpt object destructuring
+- add `rel='noreferrer'` for security issue
+  ```jsx
+  {
+    socialLinks.map((link) => {
+      const { id, href, icon } = link;
+      return (
+        <li key={id}>
+          <a href={href} target='_blank' rel='noreferrer' className='nav-icon'>
+            <i className={icon}></i>
+          </a>
+        </li>
+      );
+    });
+  }
+  ```
 
-### Advanced Configuration
+### Change The Hero Title
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- change title to ‘backroads app’
+  ```jsx
+  <h1>Backroads App</h1>
+  ```
+
+### Set Up The Hero Background Image
+
+- fix the image path in css `('../images/main.jpeg')` → `('./images/main.jpeg')`
+  ```css
+  .hero {
+    background: linear-gradient(rgb(44, 174, 186, 0.7), rgba(0, 0, 0, 0.7)),
+      url('./images/main.jpeg') center/cover no-repeat;
+  }
+  ```
+
+### Set Up The About Image
+
+- fix the image just like with logo in the navbar
+  ```jsx
+  import aboutImg from '../images/about.jpeg';
+  ```
+  ```jsx
+  <img src={aboutImg} className='about-photo' alt='awesome beach' />
+  ```
+
+### Create Title Component
+
+- refactor repeating code on a global level - in multiple components and sections
+  ```jsx
+  <div className='section-title'>
+    <h2>
+      about <span>us</span>
+    </h2>
+  </div>
+  ```
+- in components create Title.js
+  ```jsx
+  const Title = ({ title, subTitle }) => {
+    return (
+      <div className='section-title'>
+        <h2>
+          {title} <span>{subTitle}</span>
+        </h2>
+      </div>
+    );
+  };
+  export default Title;
+  ```
+- get the structure from one of the sections
+
+### Replace The Title in About, Services, Tours Component
+
+- setup two props
+- replace in About, Services, Tours like below :
+  ```jsx
+  // import
+  import Title from './Title';
+
+  // display
+  <Title title='about' subTitle='us' />;
+  ```
+
+### Create Services Data
+
+- setup data, export/import
+  - data.js
+  ```jsx
+  export const services = [
+    {
+      id: 1,
+      icon: 'fas fa-wallet fa-fw',
+      title: 'saving money',
+      text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.Asperiores, officia',
+    },
+    // rest of the objects
+  ];
+  ```
+
+### Create Service Component
+
+- move elements to separate components
+  ```jsx
+  const Service = ({ icon, title, text }) => {
+    return (
+      <article className='service'>
+        <span className='service-icon'>
+          <i className={icon}></i>
+        </span>
+        <div className='service-info'>
+          <h4 className='service-title'>{title}</h4>
+          <p className='service-text'>{text}</p>
+        </div>
+      </article>
+    );
+  };
+
+  export default Service;
+  ```
+
+### Refactor Repeating Code - Services
+
+- import Service component and Iterate over the `<Service />` instance
+  - pass props using `...` operator
+- Services.js
+  ```jsx
+  import Title from './Title';
+  import { services } from '../data';
+  import Service from './Service';
+
+  const Services = () => {
+    return (
+      <section className='section services' id='services'>
+        <Title title='our' subTitle='services' />
+        <div className='section-center services-center'>
+          {services.map((service) => {
+            return <Service key={service.id} {...service} />;
+          })}
+        </div>
+      </section>
+    );
+  };
+
+  export default Services;
+  ```
+
+### Create Tours Data
+
+- Don’t forget to get the images in the data
+  ```
+  import tour1 from './images/tour-1.jpeg';
+  import tour2 from './images/tour-2.jpeg';
+  import tour3 from './images/tour-3.jpeg';
+  import tour4 from './images/tour-4.jpeg';
+  ```
+
+### Create Tour Component
+
+- move elements to separate components
+  ```jsx
+  const Tour = ({ image, date, title, info, location, duration, cost }) => {
+    return (
+      <article className='tour-card'>
+        <div className='tour-img-container'>
+          <img src={image} className='tour-img' alt={title} />
+          <p className='tour-date'>{date}</p>
+        </div>
+        <div className='tour-info'>
+          <div className='tour-title'>
+            <h4>{title}</h4>
+          </div>
+          <p>{info}</p>
+          <div className='tour-footer'>
+            <p>
+              <span>
+                <i className='fas fa-map'></i>
+              </span>{' '}
+              {location}
+            </p>
+            <p>{duration} days</p>
+            <p>from ${cost}</p>
+          </div>
+        </div>
+      </article>
+    );
+  };
+  ```
+
+### Refactor Repeating Code - Tours
+
+- refactor repeating code (just like I did for services..)
+
+### Refactor Repeating Code - Footer
+
+- refactor repeating code (Same thing..)
+- re-use page and social links
+- in the provide current year
+  - `new Date().getFullYear()`
+  ```jsx
+  <p className='copyright'>
+    copyright &copy; Backroads travel tours company
+    <span id='date'>{new Date().getFullYear()}</span> all rights reserved
+  </p>
+  ```
+- **Alternative Approach** - **I can also create PageLinks component and NavLinks component for the entire list.  
+  And set up and pass the props for className.
+  BUT the more "moving parts" I will have the harder it's going to be to manage.
+  So if possible, let’s just use data. The Best way is to follow the company’s Guidelines.**
 
 ### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- make sure to fix warnings and errors
+- with github repo
+  - push up to github repo
+  - netlify - import an existing project
+  - Benefits
+    - don't need to keep project locally
+    - automatic builds
+- However I pushed this project up to my TIL repo..so I’m going to deploy this manually on Netlify
+  - `npm run build`
+  - https://til-1-backroads-app.netlify.app/
